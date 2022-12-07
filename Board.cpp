@@ -1,0 +1,6 @@
+class Morabaraba {
+	private:
+	
+	public:
+	
+}

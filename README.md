@@ -1,2 +1,1 @@
-Morabaraba-Solver
------------------
+# Morabaraba-Solver

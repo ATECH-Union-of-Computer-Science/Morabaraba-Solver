@@ -1,5 +1,4 @@
 #include <array>
-#include <unordered_set>
 
 const char NR = -2; //Represents that a position on the 2D array does not exist on the board. (Not Real)
 const char NC = -1; //Represents that a position on the board does not have a cow on it. (No Cow)
@@ -13,6 +12,7 @@ class Morabaraba {
 	bool over;
 	char winner;
 	char cows[2];
+	bool millCheck(const int& x, const int& y);
 	public:
 	Morabaraba() {
 		board = {{NC, NR, NR, NC, NR, NR, NC},
@@ -32,9 +32,9 @@ class Morabaraba {
 	bool getTurn();
 	bool isOver();
 	bool validPlacement(const int& x, const int& y); //Check if it is valid to place a cow at (x,y).
-	void place(int x, int y); //Actually place a cow
-	bool validMovement(int originalX, int originalY, int finalX, int finalY); //Check if a move is valid, returns true if it is.
-	void move(int originalX, int originalY, int finalX, int finalY); //Actually move a cow from (originalX, originalY) to (finalX, finalY).
+	bool place(const int& x, const int& y); //Actually place a cow. Returns true if placement creates a mill.
+	bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY); //Check if a move is valid, returns true if it is.
+	bool move(const int& originalX, const int& originalY, const int& finalX, const int& finalY); //Actually move a cow from (originalX, originalY) to (finalX, finalY). Returns true if movement creates a mill.
 	void print();
 	
 }
@@ -51,14 +51,17 @@ bool Morabaraba:isOver() {
 	return over;
 }
 
-bool validPlacement(int x, int y) {
+bool validPlacement(const int& x, const int& y) {
 	if (x < board.size() && x >= 0 && y < board[0].size() && y >= 0) return board[x][y] == NC;
 	return false;
 }
 
-void place(int x, int y) {
+bool place(const int& x, const int& y) {
 	board[x][y] = turn;
 	cows[turn]++;
+	if (millCheck(x, y)) {
+		
+	}
 	turn = !turn;
 }
 

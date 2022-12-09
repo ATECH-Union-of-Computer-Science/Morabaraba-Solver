@@ -65,3 +65,10 @@ bool place(const int& x, const int& y) {
 	turn = !turn;
 }
 
+bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
+	if (finalX < board.size() && finalX >= 0 && finalY < board[0].size() && finalY >= 0) {
+		int diff = (std::abs(originalX - finalX) + std::abs(originalY - finalY));
+		if (diff < 2 && diff > 0) return board[finalX][finalY] == NC;
+	}
+	return false;
+}

@@ -1,5 +1,7 @@
 #include <array>
 
+using namespace std;
+
 const char NR = -2; //Represents that a position on the 2D array does not exist on the board. (Not Real)
 const char NC = -1; //Represents that a position on the board does not have a cow on it. (No Cow)
 const char P1 = 0; //Represents that a position on the board has Player 1's cow on it.
@@ -67,8 +69,8 @@ bool place(const int& x, const int& y) {
 
 bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
 	if (finalX < board.size() && finalX >= 0 && finalY < board[0].size() && finalY >= 0) {
-		int diff = (std::abs(originalX - finalX) + std::abs(originalY - finalY));
-		if (diff < 2 && diff > 0) return board[finalX][finalY] == NC;
+		int diff = (abs(originalX - finalX) + abs(originalY - finalY));
+		if (diff <= 2 && diff > 0) return board[finalX][finalY] == NC;
 	}
 	return false;
 }

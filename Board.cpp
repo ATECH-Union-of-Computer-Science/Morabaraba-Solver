@@ -6,6 +6,8 @@ const char NR = -2; //Represents that a position on the 2D array does not exist 
 const char NC = -1; //Represents that a position on the board does not have a cow on it. (No Cow)
 const char P1 = 0; //Represents that a position on the board has Player 1's cow on it.
 const char P2 = 1; //Represents that a position on the board has Player 2's cow on it.
+const char M1 = 2; //Represents a a player 1 cow that is a part of a mill.
+const char M2 = 3; //Represents a player 2 cow that is a part of a mill.
 
 class Morabaraba {
 	private:

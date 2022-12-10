@@ -2,6 +2,13 @@
 
 using namespace std;
 
+/*
+TODO:
+	Implement millCheck().
+	Implement move().
+	Implement print().  
+*/
+
 const char NR = -2; //Represents that a position on the 2D array does not exist on the board. (Not Real)
 const char NC = -1; //Represents that a position on the board does not have a cow on it. (No Cow)
 const char P1 = 0; //Represents that a position on the board has Player 1's cow on it.
@@ -44,6 +51,10 @@ class Morabaraba {
 	
 }
 
+char Morabaraba::millCheck(const int& x, const int& y) {
+	
+}
+
 bool Morabaraba::inBounds(const int& x, const int& y) {
 	return x < board.size() && x >= 0 && y < board[0].size() && y >= 0;
 }
@@ -78,4 +89,12 @@ bool Morabaraba::validMovement(const int& originalX, const int& originalY, const
 		if (diff <= 2 && diff > 0) return board[finalX][finalY] == NC;
 	}
 	return false;
+}
+
+char Morabaraba::move(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
+	
+}
+
+void Morabaraba::print() {
+
 }

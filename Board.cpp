@@ -6,7 +6,9 @@ using namespace std;
 TODO:
 	Implement millCheck().
 	Implement move().
-	Implement print().  
+	Implement print().
+	Implement validShot().
+	Implement shoot().
 */
 
 const char NR = -2; //Represents that a position on the 2D array does not exist on the board. (Not Real)
@@ -48,6 +50,8 @@ class Morabaraba {
 	bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY); //Check if a move is valid, returns true if it is.
 	char move(const int& originalX, const int& originalY, const int& finalX, const int& finalY); //Actually move a cow from (originalX, originalY) to (finalX, finalY). Returns how many mills were created.
 	void print();
+	bool validShot(const int& x, const int& y); //Return if it is valid to shoot a certain position.
+	void shoot(const int& x, const int& y); //Actually shoot the position given.
 	
 }
 

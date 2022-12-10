@@ -15,6 +15,7 @@ class Morabaraba {
 	char winner;
 	char cows[2];
 	bool millCheck(const int& x, const int& y);
+	bool inBounds(const int& x, const int& y); //Returns if a position is in the bounds of a board.
 	public:
 	Morabaraba() {
 		board = {{NC, NR, NR, NC, NR, NR, NC},
@@ -41,6 +42,10 @@ class Morabaraba {
 	
 }
 
+bool Morabaraba::inBounds(const int& x, const int& y) {
+	return x < board.size() && x >= 0 && y < board[0].size() && y >= 0;
+}
+
 char Morabaraba::getWinner() {
 	return winner;
 }
@@ -54,7 +59,7 @@ bool Morabaraba:isOver() {
 }
 
 bool validPlacement(const int& x, const int& y) {
-	if (x < board.size() && x >= 0 && y < board[0].size() && y >= 0) return board[x][y] == NC;
+	if (inBounds(x, y)) return board[x][y] == NC;
 	return false;
 }
 
@@ -68,7 +73,7 @@ bool place(const int& x, const int& y) {
 }
 
 bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
-	if (finalX < board.size() && finalX >= 0 && finalY < board[0].size() && finalY >= 0) {
+	if (inBounds(finalX, finalY)) {
 		int diff = (abs(originalX - finalX) + abs(originalY - finalY));
 		if (diff <= 2 && diff > 0) return board[finalX][finalY] == NC;
 	}

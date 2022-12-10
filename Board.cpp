@@ -56,16 +56,16 @@ bool Morabaraba::getTurn() {
 	return turn;
 }
 
-bool Morabaraba:isOver() {
+bool Morabaraba::isOver() {
 	return over;
 }
 
-bool validPlacement(const int& x, const int& y) {
+bool Morabaraba::validPlacement(const int& x, const int& y) {
 	if (inBounds(x, y)) return board[x][y] == NC;
 	return false;
 }
 
-bool place(const int& x, const int& y) {
+bool Morabaraba::place(const int& x, const int& y) {
 	board[x][y] = turn;
 	cows[turn]++;
 	if (millCheck(x, y)) {
@@ -74,7 +74,7 @@ bool place(const int& x, const int& y) {
 	turn = !turn;
 }
 
-bool validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
+bool Morabaraba::validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
 	if (inBounds(finalX, finalY)) {
 		int diff = (abs(originalX - finalX) + abs(originalY - finalY));
 		if (diff <= 2 && diff > 0) return board[finalX][finalY] == NC;

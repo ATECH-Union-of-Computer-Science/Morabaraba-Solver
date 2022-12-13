@@ -88,14 +88,10 @@ char Morabaraba::place(const int& x, const int& y) {
 }
 
 bool Morabaraba::validMovement(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
-	if (inBounds(finalX, finalY)) {
-		int diff[1] = abs(originalX - finalX);
-		int diff[0] = abs(originalY - finalY)
-		int i = 2;
-		while (i--) {
-			if (diff[i] > 1) return false;
-		}
-		return board[finalX][finalY] == NC;
+	if (inBounds(finalX, finalY) && board[finalX][finalY] == NC) {
+	  int diffX = abs(originalX - finalX);
+	  int diffY = abs(originalY - finalY);
+	  return !(diffX == 0 && diffY == 0) && diffX < 2 && diffX >= 0 && diffY < 2 && diffY >= 0; //We must change either or both our horizontal position and our vertical position by at least 1 but never have two 0 changes in position.
 	}
 	return false;
 }

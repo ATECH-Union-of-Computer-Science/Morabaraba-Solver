@@ -97,7 +97,10 @@ bool Morabaraba::validMovement(const int& originalX, const int& originalY, const
 }
 
 char Morabaraba::move(const int& originalX, const int& originalY, const int& finalX, const int& finalY) {
-	
+	board[finalX][finalY] = board[originalX][originalY];
+	board[originalX][originalY] = NC;
+	turn = !turn;
+	return millCheck(finalX, finalY);
 }
 
 void Morabaraba::print() {
